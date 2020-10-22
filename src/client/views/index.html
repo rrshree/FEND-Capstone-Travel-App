@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
+  <title>Travel App</title>
+</head>
+
+<body>
+
+  <main class="main">
+
+    <!-- Section Planner -->
+
+    <div class="ui raised very padded text container segment">
+    <section id="tripDetails" class="section">
+      <div class="container">
+        <form id="form">
+          <h1 class="trip-heading">Trip Scheduler</h1>
+          <h2>Please enter your departure & destination details</h2>
+          <br>
+          <label for="depFrom">Departing from: </label><br>
+          <div class="ui input">
+            <input type="text" class="inputOverrides" name="depFrom" placeholder="Departure City"
+            autocomplete="on" required>
+          </div>
+         <br><br>
+            <label for="arrTo">Travelling to: </label><br>
+            <div class="ui input">
+              <input type="text" class="inputOverrides" name="arrTo" placeholder="Destination City" autocomplete="on"
+            required>
+            </div><br>
+            <br>
+          <label for="depDate">Date of Travel</label><br>
+          <div class="ui input"><input type="date" class="inputOverrides" name="depDate" required></div>
+          <br>
+          <input class="submitButton" type="submit" name="submit" value="Submit" id="submit">
+        </form>
+      </div>
+    </section>
+
+
+    <section id="detailsPane" class="section invisible">
+      <div class="container">
+        <h4 class="ui horizontal divider header">
+          <i class="train icon"></i>
+          Trip Details
+        </h4>
+        <div class="pix_image">
+          <img class="ui fluid image" src="./bg.jpg" id="dataImage">
+        </div>
+        <div class="result__content">
+          <h2 class="pad10"><span id="travellingTo"></span></h2>
+          <h2 class="pad10"><span id="arrivingat"></span></h2>
+          <h2 class="pad10"><span id="depDate"></span></h2>
+          <h2 class="pad10"><span id="remainingDiff"></span></h2>
+          <h2 class="pad10"><span id="maxTemp"></span></h2>
+          <h2 class="pad10"><span id="minTemp"></span></h2>
+          <h2 class="pad10">
+            <span id="forecast"></span><br>
+            <h2 class="pad10"><span id="weatherDescription"></span></h2><br>
+            <div>
+              <a class="submitButton" id="save" href="#">Print</a>
+              <a class="" id="startOver" href="#">Start over</a>
+            </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  </main>
+
+
+  <!-- Service Workers -->
+  <script>
+    // Check that service workers are supported
+    if ('serviceWorker' in navigator) {
+      // Use the window load event to keep the page load performant
+      window.addEventListener('load', () => {
+                navigator.serviceWorker.register('~service-worker.js')
+                .then(registration =>{
+                });
+            });
+    }
+  </script>
+</body>
+
+</html>
